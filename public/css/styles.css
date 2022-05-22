@@ -1,0 +1,73 @@
+/* home page styles */
+
+input {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: larger;
+}
+
+input:hover {
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.context {
+  width: 100%;
+  position: absolute;
+  top: 30vh;
+}
+
+.context h1 {
+  text-align: center;
+  color: black;
+  font-size: 50px;
+}
+
+.context form {
+  color: #fff;
+  font-size: 30px;
+}
+
+.parent-flex {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.center {
+  justify-content: center;
+}
+
+/* game page styles */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.context-map {
+  width: 100%;
+  position: absolute;
+}
+
+.context-map h1 {
+  text-align: center;
+  color: black;
+  font-size: 50px;
+}
+
+.parent-flex-map {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.center-map {
+  justify-content: center;
+  align-items: flex-start;
+}
