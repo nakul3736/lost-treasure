@@ -19,15 +19,46 @@
     </div>
 
     <div class="parent-flex center">
+
       <a href="./buried_treasure">
-        <form>
-          <input type="button" id="Play" value="Play" />
-        </form>
+        <button class="btn" id="Play">
+          PLAY
+        </button>
       </a>
+      <button class="btn" id="rule">
+        HOW TO PLAY
+      </button>
+
+    </div>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="rule-container">
+          <h2>Instructions</h2>
+          <ul>
+            <li class="points">In this game we have to find the treasure on the map by clicking at different locations.
+            </li>
+            <li class="points">So the main objective of the game is to find the treasure in minimum number of clicks.
+            </li>
+            <li class="points">On every click hint will be given to you in terms of temprature.</li>
+            <li class="points">Colder the temprature farther you will be from the treasure and if hotter the tempreature
+              means you are closer to treaure.</li>
+            <li class="points">Terms to indicate temprature in their ascending order are :-</li>
+            <li class="points">Freezing &lt; Really Cold &lt; Cold &lt; Warm &lt; Hot &lt; Really Hot &lt; Boiling Hot
+            </li>
+          </ul>
+        </div>
+      </div>
 
     </div>
 
   </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+  <script src="./app/index.js"></script>
 
 </body>
 

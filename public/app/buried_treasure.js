@@ -45,6 +45,7 @@ $("#map").click(function (event) {
   var distanceHint = getDistanceHint(distance);
   // Update the #distance element with the new hint ➏
   $("#distance").text(distanceHint);
+  $("#click").text(clicks);
   // If the click was close enough, tell them they won ➐
   if (distance < 8) {
     alert("Found the treasure in " + clicks + "	clicks!");
