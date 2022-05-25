@@ -1,19 +1,34 @@
 const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
+const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3000;
+let bodyParser = require("body-parser");
+const dp = require("./config/config").mongodbURI;
 
-app.use("/images", express.static(__dirname + "/public/images"));
-app.use("/app", express.static(__dirname + "/public/app"));
-app.use("/css", express.static(__dirname + "/public/css"));
-
-app.get("/buried_treasure", (req, res) => {
-  res.sendFile("./views/buried_treasure.html", {
-    root: __dirname,
+mongoose
+  .connect(dp, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(console.log("Mongodb connected"))
+  .catch((err) => {
+    console.log(err);
   });
-});
+
+app.set("view engine", "ejs");
+
+app.use("/user", require("./routes/user.js"));
+app.use(express.static("public"));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  res.render("register");
+});
+
+app.get("/buried_treasure", (req, res) => {
+  res.render("buried_treasure");
 });
 
 app.listen(PORT, function () {
@@ -21,5 +36,5 @@ app.listen(PORT, function () {
 });
 
 app.use((req, res) => {
-  res.status(404).sendFile("./views/404.html", { root: __dirname });
+  res.status(404).render("404");
 });

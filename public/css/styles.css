@@ -6,6 +6,8 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100%;
+  overflow: hidden;
 }
 
 button {
@@ -156,6 +158,60 @@ button:hover {
 .center-map {
   justify-content: center;
   align-items: flex-start;
+}
+
+/* register styles */
+
+.reg-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-items: center;
+  align-items: stretch;
+  border: solid 2px black;
+  border-radius: 8px;
+  margin-left: 35%;
+  margin-top: 8%;
+}
+
+.form-group {
+  margin: 10px;
+}
+
+#reg-btn {
+  margin: 10px;
+  margin-left: 25%;
+}
+
+#reg-p {
+  margin-left: 30%;
+}
+
+/* login styles */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-items: center;
+  align-items: stretch;
+  border: solid 2px black;
+  border-radius: 8px;
+  margin-left: 35%;
+  margin-top: 8%;
+}
+
+.form-group {
+  margin: 10px;
+}
+
+#login-btn {
+  margin: 10px;
+  margin-left: 25%;
+}
+
+#login-p {
+  margin-left: 30%;
 }
 
 /* 404 error styles */
