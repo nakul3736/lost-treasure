@@ -8,6 +8,8 @@ html {
   background-size: cover;
   height: 100%;
   overflow: hidden;
+  position: relative;
+  background-color: transparent;
 }
 
 button {
@@ -163,6 +165,7 @@ button:hover {
 /* register styles */
 
 .reg-container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -190,6 +193,7 @@ button:hover {
 /* login styles */
 
 .login-container {
+  position: absolute;
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -217,7 +221,42 @@ button:hover {
 /* 404 error styles */
 
 .error_404 {
+  position: absolute;
   top: 30vh;
   text-align: center;
-  margin-top: 100px;
+  /* background-color: inherit; */
+  /* margin-top: 100px; */
+}
+
+/* welcome styles */
+
+.welcome-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-items: center;
+  align-items: center;
+  border: solid 2px black;
+  border-radius: 8px;
+  margin-left: 35%;
+  margin-top: 8%;
+}
+
+#wel-btn {
+  margin: 10px;
+  margin-left: 5%;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 80%;
+  background-color: white;
+  text-align: center;
+}
+
+.welcome-container a {
+  text-decoration: none;
+}
+
+#wel-p {
+  margin-left: 30%;
 }

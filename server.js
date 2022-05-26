@@ -3,7 +3,6 @@ const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3000;
-let bodyParser = require("body-parser");
 const dp = require("./config/config").mongodbURI;
 
 mongoose
@@ -15,16 +14,18 @@ mongoose
 
 app.set("view engine", "ejs");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use("/user", require("./routes/user.js"));
 app.use(express.static("public"));
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
-app.use(bodyParser.json());
-
 app.get("/", (req, res) => {
-  res.render("register");
+  res.render("welcome");
+});
+
+app.get("/index", (req, res) => {
+  res.render("index");
 });
 
 app.get("/buried_treasure", (req, res) => {

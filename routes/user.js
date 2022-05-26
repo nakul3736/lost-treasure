@@ -10,7 +10,7 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   let errors = [];
   const { name, email, password, password2 } = req.body;
 
