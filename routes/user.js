@@ -14,7 +14,7 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-  //console.log(req.body);
+  console.log(req.body);
   let errors = [];
   const { name, email, password, password2 } = req.body;
 
@@ -81,9 +81,13 @@ router.post("/login", (req, res, next) => {
 
 // Logout
 router.get("/logout", (req, res) => {
-  req.logout();
-  req.flash("success_msg", "You are logged out");
-  res.redirect("/users/login");
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    req.flash("success_msg", "You are logged out");
+    res.redirect("/user/login");
+  });
 });
 
 module.exports = router;

@@ -8,7 +8,11 @@ const { ensureAuthenticated, forwardAuthenticated } = require("./config/auth");
 
 const app = express();
 
+//Pasport config
+require("./config/passport")(passport);
+
 const PORT = process.env.PORT || 3000;
+let bodyParser = require("body-parser");
 const dp = require("./config/config").mongodbURI;
 
 mongoose
@@ -23,7 +27,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Express session
+//Express session
 app.use(
   session({
     secret: "secret",
@@ -32,11 +36,9 @@ app.use(
   })
 );
 
-// Passport middleware
+// // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
-const local = require("./config/passport");
 
 // Connect flash
 app.use(flash());
@@ -52,7 +54,7 @@ app.use(function (req, res, next) {
 app.use("/user", require("./routes/user.js"));
 app.use(express.static("public"));
 
-app.get("/", forwardAuthenticated, (req, res) => {
+app.get("/", (req, res) => {
   res.render("welcome");
 });
 

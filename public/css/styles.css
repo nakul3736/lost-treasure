@@ -107,6 +107,37 @@ button:hover {
   cursor: pointer;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.navbar a {
+  text-decoration: none;
+  text-align: center;
+  font-size: larger;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.navbar ul {
+  list-style-type: none;
+  margin-right: 10%;
+  width: 100px;
+  height: auto;
+}
+
+.navbar a {
+  color: black;
+  width: 150px;
+}
+
+.navbar a:hover {
+  background-color: black;
+  color: white;
+}
+
 /* popup styles */
 
 .rule-container h2 {
@@ -222,11 +253,9 @@ button:hover {
 /* 404 error styles */
 
 .error_404 {
-  position: absolute;
   top: 30vh;
   text-align: center;
-  /* background-color: inherit; */
-  /* margin-top: 100px; */
+  margin-top: 100px;
 }
 
 /* welcome styles */
@@ -244,20 +273,18 @@ button:hover {
   margin-top: 8%;
 }
 
-#wel-btn {
+.welcome-container a:hover,
+.welcome-container a:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.wel-btn {
+  width: 60%;
   margin: 10px;
-  margin-left: 5%;
+  margin-left: 8%;
   border: 2px solid black;
   border-radius: 5px;
-  width: 80%;
-  background-color: white;
   text-align: center;
-}
-
-.welcome-container a {
-  text-decoration: none;
-}
-
-#wel-p {
-  margin-left: 30%;
 }
