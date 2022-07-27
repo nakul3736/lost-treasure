@@ -1,5 +1,10 @@
 // Get a random	number from 0 to size
 
+window.onload = function () {
+  console.log(localStorage.getItem("score"));
+  $("#score").text(localStorage.getItem("score"));
+};
+
 var getRandomNumber = function (size) {
   return Math.floor(Math.random() * size);
 };
@@ -49,6 +54,9 @@ $("#map").click(function (event) {
   // If the click was close enough, tell them they won ➐
   if (distance < 8) {
     alert("Found the treasure in " + clicks + "	clicks!");
+    if (localStorage.getItem("score") > clicks) {
+      localStorage.setItem("score", clicks);
+    }
     window.location.reload();
   }
 });

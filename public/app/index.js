@@ -23,3 +23,7 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+const url = new URL(window.location.href);
+const username = url.searchParams.get("username");
+localStorage.setItem("username", username);

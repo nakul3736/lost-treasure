@@ -16,9 +16,9 @@ router.get("/register", (req, res) => {
 router.post("/register", (req, res) => {
   console.log(req.body);
   let errors = [];
-  const { name, email, password, password2 } = req.body;
+  const { name, username, password, password2 } = req.body;
 
-  if (!name || !email || !password || !password2) {
+  if (!name || !username || !password || !password2) {
     errors.push({ msg: "Please enter all the fields" });
   }
   if (password !== password2) {
@@ -30,22 +30,22 @@ router.post("/register", (req, res) => {
 
   if (errors.length > 0) {
     console.log(errors);
-    res.render("register", { errors, email, name, password, password2 });
+    res.render("register", { errors, username, name, password, password2 });
   } else {
-    User.findOne({ email: email }).then((user) => {
+    User.findOne({ username: username }).then((user) => {
       if (user) {
-        errors.push({ msg: "Email already exists" });
+        errors.push({ msg: "Username already exists" });
         res.render("register", {
           errors,
           name,
-          email,
+          username,
           password,
           password2,
         });
       } else {
         const newUser = new User({
           name,
-          email,
+          username,
           password,
         });
 
@@ -70,14 +70,17 @@ router.post("/register", (req, res) => {
   }
 });
 
-// Login
-router.post("/login", (req, res, next) => {
+router.post(
+  "/login",
   passport.authenticate("local", {
-    successRedirect: "/index",
     failureRedirect: "/user/login",
     failureFlash: true,
-  })(req, res, next);
-});
+  }),
+  function (req, res) {
+    const user = encodeURIComponent(req.body.username);
+    res.redirect("/index?username=" + user);
+  }
+);
 
 // Logout
 router.get("/logout", (req, res) => {
